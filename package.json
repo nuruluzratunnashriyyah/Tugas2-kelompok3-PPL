@@ -1,0 +1,14 @@
+{
+  "name": "tugas2-kelompok3-ppl",
+  "version": "1.0.0",
+  "description": "Sistem database sederhana untuk noeveldengan menggunakan node js.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
