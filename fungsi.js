@@ -21,19 +21,30 @@ const showNovels = () => {
 
 // Menambahkan novel baru
 const addNovel = () => {
+    // Fungsi untuk meminta input yang tidak boleh kosong
+    const getInput = (prompt) => {
+        let input;
+        do {
+            input = readline.question(prompt).trim();
+            if (!input) console.log("Input tidak boleh kosong! Silakan masukkan kembali.");
+        } while (!input);
+        return input;
+    };
+
     const newNovel = {
-        title: readline.question("Masukkan judul novel: "),
-        author: readline.question("Masukkan nama pengarang: "),
+        title: getInput("Masukkan judul novel: "),
+        author: getInput("Masukkan nama pengarang: "),
         year: readline.questionInt("Masukkan tahun terbit: "),
-        genre: readline.question("Masukkan genre: "),
+        genre: getInput("Masukkan genre: "),
         pages: readline.questionInt("Masukkan jumlah halaman: "),
         rating: readline.questionFloat("Masukkan rating (0-10): "),
-        summary: readline.question("Masukkan ringkasan: ")
+        summary: getInput("Masukkan ringkasan: ")
     };
+
     let db = readDB();
     db.novels.push(newNovel);
     writeDB(db);
-    console.log("Novel berhasil ditambahkan!");
+    console.log("✅ Novel berhasil ditambahkan!");
 };
 
 // Melihat detail satu novel
